@@ -2,7 +2,7 @@ const {connect,Schema,model}=require('mongoose')
 
 
 connect('mongodb://localhost:27017/postes')
-.then(res=>console.log('yaya'))
+.then(res=>console.log('yaya yaya yayayay'))
 .catch(err=>console.log(err))
 const post=new Schema({
   Title:{

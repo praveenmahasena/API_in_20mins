@@ -19,7 +19,7 @@ app.get("/", async (req, res) => {
 app.post("/", async (req, res) => {
   const { Title, Description, Content } = req.body;
   if (!Title || !Description || !Content)
-    return res.status(400).json({ err: "invalid fields arent valid" });
+    return res.status(400).json({ err: "invalid" });
 
   const post = new Post({ Title, Description, Content });
   post
@@ -37,7 +37,7 @@ app.get("/:id", async (req, res) => {
   if (!id)
     return res
       .status(400)
-      .json({ err: "err is a err which is spelled as E-R-R" });
+      .json({ err: "err" });
   const data = await Post.findById(id);
   return data
     ? res.status(200).json(data)
@@ -60,7 +60,7 @@ app.put("/:id", async (req, res) => {
 
 app.delete('/:id',async(req,res)=>{
   const {id}=req.params
-  if(!id) return res.status().json({err:'nil values arent valid which means those are invalid'})
+  if(!id) return res.status().json({err:'nil values aren\'t valid'})
   Post.findByIdAndDelete(id)
   .then(result=>{
     res.status(300).json(result)
